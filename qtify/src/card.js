@@ -1,33 +1,30 @@
 import React from "react";
-import "./card.css"
+import "./card.css";
 
-function Card(){
-    return(
-    <div className="main">
-       
-        
-        <div className="card" >
-         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-idXbli1_F_L1Ii7KtVZ75aThzgt2UsiNXA&usqp=CAU" className="card-img-top" alt="..." />
-         <div className="card-body">
-            <button className="btn btn-primary">
-            # Follows
-           </button>
-         </div>  
-         </div>
-        <div className="card-text">
-         <p>   
-         New Bollywood
-        </p>
+function Card({ topdata }) {
+  return (
+    <div className="container">
+      <div className="row">
+        {topdata.map((item) => (
+          <div className="col-sm-4 col-md-3 col-lg-2" key={item.id}>
+            <div className="card">
+              <img src={item.image} className="card-img-top" alt={item.title} />
+              <div className="card-content">
+                <div className="card-body">
+                  <button className="btn btn-primary">
+                    {item.follows} Follows
+                  </button>
+                </div>
+                <div className="card-title">
+                  <p>{item.title}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
-    
- 
-
-
-   
-   
-  </div>
-
-    );
+  );
 }
 
-export {Card};
+export { Card };

@@ -41,4 +41,24 @@
   color: white;
   font-weight: bold;
   background-color: black;
+ 
+}
+.card-main{
+  background-color: black;
+  
+}
+.card-headers h4{
+  color: white !important;
+}
+.card-headers p{
+  color: #34c94b;
+  font-size: 20px;
+  font-weight: bold;
+}
+.card-headers{
+
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
 }
