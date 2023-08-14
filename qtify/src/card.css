@@ -1,0 +1,49 @@
+.main{
+   
+    background-color: black;
+  
+    
+
+}
+
+
+.card-body button{
+    color:white;
+    background-color: black !important;
+    font-size: 11px;
+    border-radius: 15px;
+    justify-content: center;
+    
+    align-items: self-start;
+    display: flex;
+    margin-bottom: 5px;
+}
+.card p{
+    font-size: 15px;
+    color:white;
+    display: flex;
+    
+    align-items: start;
+}
+.card{
+    border-radius: 10px;
+  
+    width: 10%;
+}
+.card-body{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.card-text{
+    color: white;
+    margin-top: 5px;
+
+}
+.card img{
+    object-fit: cover;
+    height: 20vh;
+}
+.card-body{
+    height: 6vh;
+}

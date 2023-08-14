@@ -1,8 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&display=swap');
-*{
-    font-family: 'Bricolage Grotesque';
-}
+
 .header{
     display:flex;
     align-items:centre;
@@ -58,7 +55,7 @@ button > img{
     background-color: #ffffff;
     border: 2px solid #121212;
 }   
-@media (max-width: 735px) {
+@media (max-width: 763px) {
     
     .feedback button {
       display: none;

@@ -1,6 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+  font-family: 'Poppins';
+}
 .App {
-  background-color: #242424;
+  background-color: black;
   height:100vh;
 }
+.Hero-Section{
+  display: flex;
+  color:white;
+  font-weight: bolder;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.Hero-img img{
+  height:200px;
+  width:200px;
+}
+.Hero-text :first-child{
+  font-size: 30px;
+  margin-left: 40px;
+}
+.Hero-text > p {
+  font-size: 30px;
+}
 
+@media (max-width:763px) {
+  .Hero-img > img{
+    height: 90px;
+    width: 90px; 
+  }
+  .Hero-text p{
+    font-size: 15px !important;
+  }
+}
 
+.card-main h4{
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  background-color: black;
+}
