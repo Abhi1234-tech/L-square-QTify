@@ -1,0 +1,74 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&display=swap');
+*{
+    font-family: 'Bricolage Grotesque';
+}
+.header{
+    display:flex;
+    align-items:centre;
+    justify-content: space-between;
+    background-color: #34c94b;
+    padding-left: 4px;
+    padding-right: 4px;
+    
+}
+.logo{
+    display:flex;
+    margin-top:10px;
+}
+.logo p{
+    font-size: 30px;
+}
+.logo > img{
+    height:50px;
+    width:50px;
+    mix-blend-mode: multiply;
+}
+button > img{
+    width:20px;
+    mix-blend-mode: multiply;
+   
+}
+.feedback{
+    margin-top: 10px;
+
+}
+.feedback button{
+    border-radius: 10px;
+    height:40px;
+    font-weight: bold;
+    color: #34c94b;
+    margin-top:8px;
+    background-color: #121212;
+}
+.searchbar{
+    margin-top:8px;
+}
+.searchbar button{
+    background-color: #ffffff;
+    margin-right: 10px;
+    transform: translateX(-9px);
+    border: 2px solid #121212;
+    
+}
+
+
+.searchbar input {
+    width:400px;
+    background-color: #ffffff;
+    border: 2px solid #121212;
+}   
+@media (max-width: 735px) {
+    
+    .feedback button {
+      display: none;
+    }
+    .logo p{
+       font-size:20px;
+    }
+    .logo img{
+        width:40px;
+        height:40px;
+    }
+   
+  }
