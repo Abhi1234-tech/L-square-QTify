@@ -45,6 +45,7 @@
 }
 .card-main{
   background-color: black;
+  border-bottom: #34c94b 2px solid;
   
 }
 .card-headers h4{
@@ -61,4 +62,16 @@
   justify-content: space-between;
   margin-left: 10px;
   margin-right: 10px;
+}
+.card-new{
+  background-color: black;
+  border-bottom: #34c94b 2px solid;
+  margin-top: 10px;
+}
+.card-new h4{
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  background-color: black;
+ 
 }

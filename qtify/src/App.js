@@ -6,7 +6,9 @@ import './App.css';
 
 function App() {
   const [topdata, setTopdata] = useState([]);
-  const [showAllCards, setShowAllCards] = useState(false);
+  const [newAlbums, setNewAlbums] = useState([]);
+  const [showAllTopCards, setShowAllTopCards] = useState(false);
+  const [showAllNewCards, setShowAllNewCards] = useState(false);
 
   useEffect(() => {
     axios.get("https://qtify-backend-labs.crio.do/albums/top")
@@ -16,10 +18,22 @@ function App() {
       .catch(error => {
         console.error("Error fetching top albums:", error);
       });
+
+    axios.get("https://qtify-backend-labs.crio.do/albums/new")
+      .then(response => {
+        setNewAlbums(response.data);
+      })
+      .catch(error => {
+        console.error("Error fetching new albums:", error);
+      });
   }, []);
 
-  const toggleShowAllCards = () => {
-    setShowAllCards(!showAllCards);
+  const toggleShowAllTopCards = () => {
+    setShowAllTopCards(!showAllTopCards);
+  };
+
+  const toggleShowAllNewCards = () => {
+    setShowAllNewCards(!showAllNewCards);
   };
 
   return (
@@ -43,12 +57,28 @@ function App() {
             role="button"
             aria-expanded="false"
             aria-controls="collapseExample"
-            onClick={toggleShowAllCards}
+            onClick={toggleShowAllTopCards}
           >
-            {showAllCards ? "Collapse" : "Show More"}
+            {showAllTopCards ? "Collapse" : "Show More"}
           </p>
         </div>
-        <Card topdata={showAllCards ? topdata : topdata.slice(0, 12)} />
+        <Card topdata={showAllTopCards ? topdata : topdata.slice(0, 6)} />
+      </div>
+      <div className="card-new">
+        <div className="card-headers">
+          <h4>New Albums</h4>
+          <p
+            data-bs-toggle="collapse"
+            href="#collapseExample"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+            onClick={toggleShowAllNewCards}
+          >
+            {showAllNewCards ? "Collapse" : "Show More"}
+          </p>
+        </div>
+        <Card topdata={showAllNewCards ? newAlbums : newAlbums.slice(0, 6)} />
       </div>
     </div>
   );
