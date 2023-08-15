@@ -1,77 +1,114 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-*{
-  font-family: 'Poppins';
+
+* {
+  font-family: 'Poppins', sans-serif;
 }
+
 .App {
   background-color: black;
-  height:100vh;
+  height: 100vh;
+  overflow-x: hidden;
 }
-.Hero-Section{
+
+.Hero-Section {
   display: flex;
-  color:white;
+  color: white;
   font-weight: bolder;
   align-items: center;
   justify-content: center;
   margin-top: 30px;
 }
-.Hero-img img{
-  height:200px;
-  width:200px;
+
+.Hero-img img {
+  height: 200px;
+  width: 200px;
 }
-.Hero-text :first-child{
+
+.Hero-text :first-child {
   font-size: 30px;
   margin-left: 40px;
 }
+
 .Hero-text > p {
   font-size: 30px;
 }
 
-@media (max-width:763px) {
-  .Hero-img > img{
+@media (max-width: 763px) {
+  .Hero-img img {
     height: 90px;
-    width: 90px; 
+    width: 90px;
   }
-  .Hero-text p{
+  .Hero-text p {
     font-size: 15px !important;
   }
 }
 
-.card-main h4{
+.card-main h4,
+.card-new h4,
+.card-songs h4 {
   font-size: 20px;
   color: white;
   font-weight: bold;
   background-color: black;
- 
+  padding: 10px;
+  margin: 0;
 }
-.card-main{
-  background-color: black;
-  border-bottom: #34c94b 2px solid;
-  
-}
-.card-headers h4{
-  color: white !important;
-}
-.card-headers p{
-  color: #34c94b;
-  font-size: 20px;
-  font-weight: bold;
-}
-.card-headers{
 
-  display: flex;
-  justify-content: space-between;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.card-new{
+.card-main,
+.card-new,
+.card-songs {
   background-color: black;
   border-bottom: #34c94b 2px solid;
   margin-top: 10px;
 }
-.card-new h4{
+
+.card-headers h4 {
+  color: white !important;
+  margin: 0;
+}
+
+.card-headers p {
+  color: #34c94b;
   font-size: 20px;
-  color: white;
   font-weight: bold;
+  margin: 0;
+  cursor: pointer;
+}
+
+.card-headers {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-items: center;
+}
+
+.select-genre {
   background-color: black;
- 
+  color: white;
+  font-size: 16px;
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select-genre option {
+  background-color: black;
+  color: white;
+}
+.card-songs button{
+  color: white;
+  background-color: black !important;
+  
+  font-size: 15px;
+  border-radius: 9px;
+  margin-left:5px;
+  margin-right: 5px;
+}
+.card-songs button:hover{
+  border-bottom: #34c94b 3px solid;
+}
+.active-genre{
+  margin-left: 15px;
 }
