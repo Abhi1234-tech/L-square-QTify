@@ -8,57 +8,43 @@ function App() {
   const [topdata, setTopdata] = useState([]);
   const [newAlbums, setNewAlbums] = useState([]);
   const [songs, setSongs] = useState([]);
+  const [topCurrentIndex, setTopCurrentIndex] = useState(0);
+  const [newCurrentIndex, setNewCurrentIndex] = useState(0);
+  const [songCurrentIndex, setSongCurrentIndex] = useState(0);
   const [showAllTopCards, setShowAllTopCards] = useState(false);
   const [showAllNewCards, setShowAllNewCards] = useState(false);
   const [showAllSongs, setShowAllSongs] = useState(false);
+  const [selectedGenre, setSelectedGenre] = useState("");
   const [genres, setGenres] = useState([]);
-  const [selectedGenre, setSelectedGenre] = useState(""); // Store the selected genre
 
   useEffect(() => {
     axios.get("https://qtify-backend-labs.crio.do/albums/top")
-      .then(response => {
-        setTopdata(response.data);
-      })
-      .catch(error => {
-        console.error("Error fetching top albums:", error);
-      });
+      .then(response => setTopdata(response.data))
+      .catch(error => console.error("Error fetching top albums:", error));
 
     axios.get("https://qtify-backend-labs.crio.do/albums/new")
-      .then(response => {
-        setNewAlbums(response.data);
-      })
-      .catch(error => {
-        console.error("Error fetching new albums:", error);
-      });
+      .then(response => setNewAlbums(response.data))
+      .catch(error => console.error("Error fetching new albums:", error));
 
     axios.get("https://qtify-backend-labs.crio.do/songs")
-      .then(response => {
-        setSongs(response.data);
-      })
-      .catch(error => {
-        console.error("Error fetching songs:", error);
-      });
+      .then(response => setSongs(response.data))
+      .catch(error => console.error("Error fetching songs:", error));
 
-    axios.get("https://qtify-backend-labs.crio.do/genres") // Fetch genres data
-      .then(response => {
-        setGenres(response.data.data);
-      })
-      .catch(error => {
-        console.error("Error fetching genres:", error);
-      });
+    axios.get("https://qtify-backend-labs.crio.do/genres")
+      .then(response => setGenres(response.data.data))
+      .catch(error => console.error("Error fetching genres:", error));
   }, []);
 
-  const toggleShowAllTopCards = () => {
-    setShowAllTopCards(!showAllTopCards);
-  };
+  const toggleShowAllTopCards = () => setShowAllTopCards(!showAllTopCards);
+  const toggleShowAllNewCards = () => setShowAllNewCards(!showAllNewCards);
+  const toggleShowAllSongs = () => setShowAllSongs(!showAllSongs);
 
-  const toggleShowAllNewCards = () => {
-    setShowAllNewCards(!showAllNewCards);
-  };
+  const handleMoveLeft = (setter, currentIndex) => () => setter(prevIndex => (prevIndex > 0 ? prevIndex - 1 : prevIndex));
+  const handleMoveRight = (setter, currentIndex, maxIndex) => () => setter(prevIndex => (prevIndex < maxIndex ? prevIndex + 1 : prevIndex));
 
-  const toggleShowAllSongs = () => {
-    setShowAllSongs(!showAllSongs);
-  };
+  const maxTopIndex = topdata.length - 1;
+  const maxNewIndex = newAlbums.length - 1;
+  const maxSongIndex = songs.length - 1;
 
   const filteredSongs = selectedGenre
     ? songs.filter(song => song.genre.key === selectedGenre)
@@ -67,46 +53,31 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="Hero-Section">
-        <div className="Hero-text">
-          <p>100 Thousand Songs, ad-free</p>
-          <p>Over thousands podcast episodes</p>
-        </div>
-        <div className="Hero-img">
-          <img src="https://l-square-q-tify-pearl.vercel.app/static/media/hero-image.668784662a5b69d067ee.png" alt="Hero" />
-        </div>
-      </div>
       <div className="card-main">
         <div className="card-headers">
           <h4>Top Albums</h4>
-          <p
-            data-bs-toggle="collapse"
-            href="#collapseExample"
-            role="button"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-            onClick={toggleShowAllTopCards}
-          >
+          <p data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" onClick={toggleShowAllTopCards}>
             {showAllTopCards ? "Collapse" : "Show More"}
           </p>
         </div>
-        <Card topdata={showAllTopCards ? topdata : topdata.slice(0, 6)} />
+        <Card topdata={showAllTopCards ? topdata : topdata.slice(topCurrentIndex, topCurrentIndex + 6)} />
+        <div className="card-controls">
+          <button onClick={handleMoveLeft(setTopCurrentIndex, topCurrentIndex)}>&lt;</button>
+          <button onClick={handleMoveRight(setTopCurrentIndex, topCurrentIndex, maxTopIndex)}>&gt;</button>
+        </div>
       </div>
       <div className="card-new">
         <div className="card-headers">
           <h4>New Albums</h4>
-          <p
-            data-bs-toggle="collapse"
-            href="#collapseExample"
-            role="button"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-            onClick={toggleShowAllNewCards}
-          >
+          <p data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" onClick={toggleShowAllNewCards}>
             {showAllNewCards ? "Collapse" : "Show More"}
           </p>
         </div>
-        <Card topdata={showAllNewCards ? newAlbums : newAlbums.slice(0, 6)} />
+        <Card topdata={showAllNewCards ? newAlbums : newAlbums.slice(newCurrentIndex, newCurrentIndex + 6)} />
+        <div className="card-controls">
+          <button onClick={handleMoveLeft(setNewCurrentIndex, newCurrentIndex)}>&lt;</button>
+          <button onClick={handleMoveRight(setNewCurrentIndex, newCurrentIndex, maxNewIndex)}>&gt;</button>
+        </div>
       </div>
       <div className="card-songs">
         <div className="card-headers">
@@ -128,18 +99,15 @@ function App() {
               </button>
             ))}
           </div>
-          <p
-            data-bs-toggle="collapse"
-            href="#collapseExample"
-            role="button"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-            onClick={toggleShowAllSongs}
-          >
+          <p data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" onClick={toggleShowAllSongs}>
             {showAllSongs ? "Collapse" : "Show More"}
           </p>
         </div>
-        <Card topdata={showAllSongs ? filteredSongs : filteredSongs.slice(0, 6)} />
+        <Card topdata={showAllSongs ? filteredSongs : filteredSongs.slice(songCurrentIndex, songCurrentIndex + 6)} />
+        <div className="card-controls">
+          <button onClick={handleMoveLeft(setSongCurrentIndex, songCurrentIndex)}>&lt;</button>
+          <button onClick={handleMoveRight(setSongCurrentIndex, songCurrentIndex, maxSongIndex)}>&gt;</button>
+        </div>
       </div>
     </div>
   );

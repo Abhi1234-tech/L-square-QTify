@@ -112,3 +112,26 @@
 .active-genre{
   margin-left: 15px;
 }
+.card-controls button{
+  color: white;
+  background-color: #34c94b !important;
+  border-radius: 80%;
+  width: 40px;
+  height: 40px;
+  margin-left: 5px;
+  margin-right: 5px;
+
+}
+.card-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: center;
+  width: 100px; /* Adjust the width as needed */
+  margin: 0 auto;
+  font-size: 20px;
+  border-color: black solid;
+  width:90vw;
+  transform: translateY(-180px);
+}
+
