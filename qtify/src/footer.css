@@ -1,0 +1,60 @@
+.play{
+    display: flex;
+    flex-direction: column;
+}
+.footer{
+    display: flex;
+    border-top: 2px rgb(110, 107, 107) solid;
+    
+    
+    
+}
+.song-card img{
+    object-fit: cover;
+    width:70px;
+    height: 80px;
+    margin: 30px 30px;
+    border-radius: 6px;
+
+}
+
+.song-text{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+
+}
+.song-text h5{
+    color: white;
+    font-size:15px;
+
+}
+.song-text p{
+    color: white;
+    font-size: 10px;
+}
+.play{
+    display:flex;
+    flex-direction: column;
+    margin-top: 10px;
+    width:70vw;
+}
+.play-pause img{
+    display:flex;
+    width:70px;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    
+}
+.play-pause{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.progress{
+   margin-left: 50px;
+   height:6px;
+  
+}

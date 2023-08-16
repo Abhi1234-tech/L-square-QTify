@@ -1,0 +1,62 @@
+/* faq.css */
+.main {
+    font-family: 'Poppins';
+  }
+  
+  .heading h1 {
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    width: 100vw;
+    background: black;
+  }
+  
+  /* Style the accordion container */
+  .accordion-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    padding: 20px;
+  }
+  
+  /* Style the accordion items */
+  .accordion-item {
+    border: 2px solid white; /* Add white solid border */
+    margin-bottom: 10px; /* Add margin for spacing between accordion items */
+    border-radius: 5px;
+  }
+  
+  /* Style the accordion headers */
+  .accordion-header {
+    background-color: black;
+  }
+  
+  /* Style the accordion buttons */
+  .accordion-button {
+    color: white;
+    background-color: black;
+  }
+ 
+  
+  /* Style the collapsed accordion button */
+  .accordion-button.collapsed {
+    color: white;
+  }
+  
+  /* Style the accordion bodies */
+  .accordion-body {
+    background-color: black;
+    color: white;
+  }
+  
+  .accordion-header {
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    
+  }
+  

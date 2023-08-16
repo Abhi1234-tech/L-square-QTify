@@ -3,6 +3,8 @@ import axios from "axios";
 import { Header } from "./header.js";
 import { Card } from "./card.js";
 import './App.css';
+import Faq from "./faq.js"
+import Footer from "./footer.js"
 
 function App() {
   const [topdata, setTopdata] = useState([]);
@@ -109,6 +111,8 @@ function App() {
           <button onClick={handleMoveRight(setSongCurrentIndex, songCurrentIndex, maxSongIndex)}>&gt;</button>
         </div>
       </div>
+      <Faq/>
+      <Footer/>
     </div>
   );
 }
