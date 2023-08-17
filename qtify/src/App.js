@@ -5,6 +5,8 @@ import { Card } from "./card.js";
 import './App.css';
 import Faq from "./faq.js"
 import Footer from "./footer.js"
+import {Top} from "./topsongs.js"
+import {Song} from "./songs.js"
 
 function App() {
   const [topdata, setTopdata] = useState([]);
@@ -55,7 +57,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="card-main">
+      <div className="card-main " >
         <div className="card-headers">
           <h4>Top Albums</h4>
           <p data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" onClick={toggleShowAllTopCards}>
@@ -75,7 +77,7 @@ function App() {
             {showAllNewCards ? "Collapse" : "Show More"}
           </p>
         </div>
-        <Card topdata={showAllNewCards ? newAlbums : newAlbums.slice(newCurrentIndex, newCurrentIndex + 6)} />
+        <Top newAlbums={showAllNewCards ? newAlbums : newAlbums.slice(newCurrentIndex, newCurrentIndex + 6)} />
         <div className="card-controls">
           <button onClick={handleMoveLeft(setNewCurrentIndex, newCurrentIndex)}>&lt;</button>
           <button onClick={handleMoveRight(setNewCurrentIndex, newCurrentIndex, maxNewIndex)}>&gt;</button>
@@ -105,7 +107,7 @@ function App() {
             {showAllSongs ? "Collapse" : "Show More"}
           </p>
         </div>
-        <Card topdata={showAllSongs ? filteredSongs : filteredSongs.slice(songCurrentIndex, songCurrentIndex + 6)} />
+        <Song songs={showAllSongs ? filteredSongs : filteredSongs.slice(songCurrentIndex, songCurrentIndex + 6)} />
         <div className="card-controls">
           <button onClick={handleMoveLeft(setSongCurrentIndex, songCurrentIndex)}>&lt;</button>
           <button onClick={handleMoveRight(setSongCurrentIndex, songCurrentIndex, maxSongIndex)}>&gt;</button>

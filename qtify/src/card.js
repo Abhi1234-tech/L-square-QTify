@@ -8,7 +8,16 @@ function Card({ topdata }) {
         {topdata.map((item) => (
           <div className="col-sm-4 col-md-3 col-lg-2" key={item.id}>
             <div className="card">
-              <img src={item.image} className="card-img-top" alt={item.title} />
+              <img
+                src={item.image}
+                className="card-img-top"
+                alt={item.title}
+                data-toggle="tooltip" 
+                title={`${item.songs.length} Songs`} 
+                style={{
+                  "background-color": "black",
+                }}
+              />
               <div className="card-content">
                 <div className="card-body">
                   <button className="btn btn-primary">
