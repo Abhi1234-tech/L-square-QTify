@@ -70,5 +70,10 @@
   margin-top: 5px;
 }
 
-
+.card:hover{
+  transform: translate(-9px,9px);
+  box-shadow: 7px 7px  #34c94b;
+  transition: 0.8s ;
+  
+}
 
