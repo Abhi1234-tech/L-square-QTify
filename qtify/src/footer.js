@@ -1,7 +1,7 @@
 import React from "react";
 import "./footer.css";
 
-function Footer() {
+function Footer({searchResults}) {
     return(
         <div className="footer">
             <div className="song-card">

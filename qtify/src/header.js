@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import "./header.css";
-
-function Header() {
+//manipulating input from search input 
+function Header({ onSearchSubmit }) {
   const [searchQuery, setSearchQuery] = useState(""); // State to store the search query
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    
-    console.log("Search Query:", searchQuery);
+    onSearchSubmit(searchQuery);
   };
 
   return (
@@ -49,4 +48,4 @@ function Header() {
   );
 }
 
-export { Header };
+export default Header;
