@@ -3,8 +3,8 @@
     color: white;
   
   border: 2px solid #34c94b ;
-    width:40vw;
-    height:40vh;
+    width:35vw;
+    height:30vh;
     overflow-y: scroll;
     display: flex;
     align-items: center;
@@ -19,16 +19,20 @@
     margin-right: 10px;
     left:0;
     border: 1px white solid;
-    border-radius: 3px;
+    border-radius: 6px;
     object-fit: cover;
 
 }
 .thing{
     display: flex;
     align-items: center;
+    scroll-behavior: smooth;
     
-    
-    border: 2px solid #34c94b ;
+    border: 1px solid #34c94b ;
     width:100%;
 
+}
+.thing p{
+    font-size:12px;
+   
 }

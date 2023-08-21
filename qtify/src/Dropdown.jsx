@@ -7,7 +7,11 @@ function Dropdown({ searchResults }) {
       {searchResults.map((e) => (
         <div key={e.id} className="thing">
           <img src={e.image} alt={e.title} />
+          
           <p>{e.title}</p>
+          
+          
+         
         </div>
       ))}
     </div>
